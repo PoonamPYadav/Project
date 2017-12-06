@@ -1,0 +1,34 @@
+<div class="viewshow" layout="row">
+
+
+<div class="part1">
+  <div class="" layout-padding layout="row">
+    <mat-list flex="80" layout-padding ng-repeat="list in mobileLists  ">
+      <mat-list-item>
+  <img matLine ng-src="{{ list.img }}" alt="{{list.title}}" />
+        <p matLine> {{ list.title}} </p>
+        <p matLine> Price:{{ list.price}}</p>
+        <ul matLine ng-repeat="fet in list.features">Features:
+           <li >
+          {{fet.sim}}</li>
+         <li >{{fet.camera}}</li>
+         <li >{{fet.scren}}</li>
+         <li >{{fet.music}}</li>
+
+
+
+
+      </ul>
+
+      </mat-list-item>
+    </mat-list>
+
+
+  </div>
+
+</div>
+
+<div class="part2">
+  <md-button class="md-primary">Primary Button</md-button>
+</div>
+</div>

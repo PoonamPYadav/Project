@@ -1,0 +1,41 @@
+
+  <div  class="md-padding demo" id="md-padding">
+    <md-subheader id="reghead">Register Form</md-subheader>
+
+    <md-content id="mdcontent">
+      <form name="projectForm">
+        <div layout="column" layout-align="space-between center">
+
+          <md-input-container flex="10" >
+            <label>Name</label>
+            <input required name="clientName" ng-model="user.name" >
+            <div ng-messages="projectForm.clientName.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          <md-input-container flex="10">
+            <label>E-mail</label>
+            <input required name="Email" type="email" ng-model="user.email">
+            <div ng-messages="projectForm.Email.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+
+          <md-input-container flex="10">
+            <label>Password</label>
+            <input required name="Password"  type="password" ng-model="user.password">
+            <div ng-messages="projectForm.Password.$error">
+              <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+          <div>
+            <md-button type="submit" ng-click="save()" id="subbtn">Submit</md-button>
+          </div>
+        </div>
+
+
+      </form>
+
+    </md-content>
+
+  </div>
