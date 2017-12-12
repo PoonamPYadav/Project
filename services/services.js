@@ -1,4 +1,3 @@
-//angular.module('loginApp', [])
 app.service("myservices",function(){
 
     this.getary = function(){
@@ -6,9 +5,10 @@ app.service("myservices",function(){
 
      Id:1,
        img: "assets/img/mob1.jpg",
-       title: "Samsung Galaxy J7 Prime (Gold, 32GB) with Offers",
+       title: "Samsung Galaxy J7 Prime",
        price: 5899,
        os: "ioS",
+       brand:"Samsung",
        features: [{
          sim: "Dual SIM",
          camera: "Primary Camera",
@@ -21,9 +21,10 @@ app.service("myservices",function(){
      {
          Id:2,
        img: "assets/img/mob2.jpg",
-       title: "Samsung Galaxy J7 Prime (Gold, 32GB) with Offers",
+       title: "Samsung Galaxy J7 Prime ",
        price: 9899,
        os: "android",
+       brand:"Samsung",
        features: [{
          sim: "Dual SIM",
          camera: "Primary Camera",
@@ -35,9 +36,10 @@ app.service("myservices",function(){
      {
          Id:3,
        img: "assets/img/mob3.jpg",
-       title: "Nokia 105 (Black)",
+       title: "Nokia 105 (Black, 16GB)",
        price: 8799,
        os: "Window phone",
+       brand:"Nokiya",
        features: [{
          sim: "Dual SIM",
          camera: "Primary Camera",
@@ -50,21 +52,24 @@ app.service("myservices",function(){
        img: "assets/img/mob4.jpg",
        title: "Lenovo Z2 Plus (Black)",
        price: 8899,
-       os: "ioS"
+       os: "ioS",
+       brand:"Lenovo"
 
      }, {
          Id:5,
        img: "assets/img/mob5.jpg",
        title: "Nokia 6 (Matte Black, 32GB)",
        price: 6899,
-       os: "Window phone"
+       os: "Window phone",
+       brand:"Nokia"
      },
      {
    Id:6,
        img: "assets/img/mob6.jpg",
        title: "Redmi 4 (Gold, 64GB)",
        price: 7899,
-       os: "Blackberry"
+       os: "Blackberry",
+       brand:"Mi"
      }]
 
 
@@ -103,7 +108,7 @@ return [
     name: "Primary Camera"
   },
   {
-    name: "Touchscreen "
+    name: "Touchscreen"
   },
   {
     name: "Hotspot"
@@ -113,6 +118,30 @@ return [
   }
 
 ];
+}
+
+
+
+this.getary4 = function(){
+return [{
+    name: "Mi"
+  },
+  {
+    name: "Lenovo"
+  },
+  {
+    name: "Samsung"
+  }
+  ,
+  {
+    name: "Nokia"
+  },
+  {
+    name: "HTC"
+  }
+
+];
+
 }
 }
 

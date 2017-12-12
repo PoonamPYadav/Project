@@ -1,14 +1,86 @@
 #headtag{
-
+height:2000px;
   background-color: #062599;
-}
-.logoutbtn{
 
-  color: white;
+}
+/*.logoutbtn{
+color: white;
   align:right;
+}*/
+.fixed-header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  background-color:#062599;
+  height: auto;
 }
-.sideNav{
 
-  background-color: #e0d9f880;
-  width: 30%
+.md-card-image{
+align:center;
+padding: 15px;
+  border: 1px solid #e8e6ef;
 }
+
+#mobileCard{
+
+  color: #0000000;
+  background-color: #ece9f842;
+  border-radius: 2px;
+  text-align: left;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+
+.title{
+  color: #062599;
+  font-style: solid;
+  font-size: 18px;
+  text-decoration::none;
+  }
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f1620f;
+  cursor: pointer;
+}
+
+.checkboxOpt {
+  font-size: 14px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+#sideNav {
+  background-color: #f7f6f8;
+}
+
+.checkboxItem {
+  font-size: 12px;
+  padding: 8px;
+  font-weight: bold;
+}
+
+.md-sidenav-left {
+  border-right: 1px solid #c1c1c1;
+  width: 250px;
+}
+#mobileCard .cartaddBtn{
+  background-color: #ee9c35;
+  color:#fff;
+  border-radius:8px;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px;
+}
+.rupee{
+  color: #b12704;
+  font-weight: bold;
+}
+/*.cartback{
+
+  background-color: red;
+  background-image: url("assets/img/shop1.png");
+}*/

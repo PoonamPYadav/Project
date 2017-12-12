@@ -1,34 +1,26 @@
-<div class="viewshow" layout="row">
-
-
-<div class="part1">
-  <div class="" layout-padding layout="row">
-    <mat-list flex="80" layout-padding ng-repeat="list in mobileLists  ">
-      <mat-list-item>
-  <img matLine ng-src="{{ list.img }}" alt="{{list.title}}" />
-        <p matLine> {{ list.title}} </p>
-        <p matLine> Price:{{ list.price}}</p>
-        <ul matLine ng-repeat="fet in list.features">Features:
-           <li >
-          {{fet.sim}}</li>
-         <li >{{fet.camera}}</li>
-         <li >{{fet.scren}}</li>
-         <li >{{fet.music}}</li>
-
-
-
-
-      </ul>
-
-      </mat-list-item>
-    </mat-list>
-
-
-  </div>
-
-</div>
-
-<div class="part2">
-  <md-button class="md-primary">Primary Button</md-button>
-</div>
+<div class="viewshow" layout="column" flex ng-style="cardstyle" >
+      <div  layout-margin flex >
+        <md-card id="mobileCard" ng-repeat="list in mobileLists" layout="column" layout-padding>
+            <a ng-click=backPage()>back to serch result list</a>
+            <div layout="row">
+              <p class="md-card-image">  <img ng-src="{{ list.img }}"  alt="Washed Out" ></p>
+            <md-card-actions>
+              <md-card-content>
+                <p matLine class="title"> {{ list.title}}</p>
+                <p matLine>by {{ list.brand}} </p>
+                <p class="rupee" matLine>&#x20b9;{{ list.price}}</p>
+              <div matLine ng-repeat="fet in list.features">Features: {{fet.sim}},
+                <p>{{fet.camera}},</p>
+                <p>{{fet.scren}},</p>
+                <p>{{fet.music}}</p>
+              </div><br>
+              <div class="cartaddBtn" layout="row" layout-align="center center">
+                <img src="assets\img\add.png" alt="addcart" width="50px" height="45px">
+                <md-button  ng-click=add(list)>Add to cart</md-button>
+              </div>
+            </md-card-content>
+          </md-card-actions>
+          </div>
+        </md-card>
+    </div>
 </div>

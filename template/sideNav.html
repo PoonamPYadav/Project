@@ -1,0 +1,29 @@
+<md-sidenav   class="md-sidenav-left"  id="sideNav"  md-component-id="left-side-nav"  flex style="margin-top:128px;position:fixed; height:auto;"
+            md-disable-backdrop md-whiteframe="7">
+  <md-content layout-margin id="sideNav">
+      <div class="checkboxOpt">
+        <a ng-click="displayCheckBox=!displayCheckBox"><span>Mobile Phone Operating System</span></a>
+          <div class="checkboxItem" ng-show="displayCheckBox" layout="column" ng-repeat="item in driversList">
+  	         <md-checkbox  aria-label="mobile_name" ng-model="item.checked" ng-change="check(item)">
+               {{ item.name}} <br>
+             </md-checkbox>
+  	      </div>
+      </div>
+      <div class="checkboxOpt">
+        <a ng-click="displayCheckBox1=!displayCheckBox1"><span>Device Features</span></a>
+          <div class="checkboxItem" ng-show="displayCheckBox1"  layout="column" ng-repeat="items in driversFeatures">
+            <md-checkbox  aria-label="mobile_name" ng-model="items.checked" ng-change="checks(items)">
+              {{ items.name}} <br>
+            </md-checkbox>
+          </div>
+      </div>
+      <div class="checkboxOpt">
+        <a ng-click="displayCheckBox2=!displayCheckBox2"><span>Mobile Brand</span></a>
+          <div class="checkboxItem" ng-show="displayCheckBox2" layout="column"  ng-repeat="items in brandList">
+            <md-checkbox  aria-label="mobile_name" ng-model="items.checked" ng-change="checkBrand(items)">
+              {{ items.name}} <br>
+            </md-checkbox>
+          </div>
+     </div>
+  </md-content>
+</md-sidenav>

@@ -1,0 +1,14 @@
+<div layout-padding layout="row" layout-wrap ng-style="cardstyle" >
+  <div  ng-repeat="list in mobileLists |filter:itemType | filter:itemsType| filter:itemBrandType"
+   layout-margin layout-padding layout-wrap flex-xs="80" flex-gt-lg="30" flex-xl="30">
+    <md-card id="mobileCard" md-whiteframe="4">
+      <a class="md-card-image" ui-sref="home.view({Id:list.Id})"> <img ng-src="{{ list.img }}" width="230px" alt="Washed Out"></a>
+      <md-card-actions layout="row">
+        <md-card-content>
+          <a ui-sref="home.view({Id:list.Id})" class="title"><p matLine> {{ list.title}} </a></p>
+          <p matLine>by {{ list.brand}} </p> <!--matLine use for Multi-line lists-->
+          <p class="rupee" matLine>&#x20b9;{{ list.price}}</p>  <!-- &#x20b9; use for rupee sign-->
+         </md-card-content>
+      </md-card-actions>
+    </md-card>
+  </div>

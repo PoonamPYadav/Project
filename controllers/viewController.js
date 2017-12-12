@@ -1,9 +1,4 @@
-// app.controller("viewController",function($scope,$stateParams){
-//
-// console.log($stateParams);
-//
-// });
-app.controller('viewController',['$scope','$stateParams','myservices',function($scope,$stateParams,myservices){
+app.controller('viewController',['$scope','$stateParams','myservices','$state',function($scope,$stateParams,myservices,$state){
 
 var ResultId = $stateParams.Id;
 //console.log(ResultId);
@@ -22,8 +17,37 @@ var ResultId = $stateParams.Id;
   }
 
   $scope.mobileLists=aryres;
+  //console.log($stateParams);
+  //var data;
+  if(localStorage.getItem('cart') == null) {
+    $scope.NoOfCartElements = 0;
+  }
+  else //if(JSON.parse(localStorage.getItem('cart')).length >= 0 )
+  $scope.NoOfCartElements = JSON.parse(localStorage.getItem('cart')).length;
+
+  $scope.add=function(data){
 
 
+cartElemArray=[];
 
-  //console.log($scope.driverList);
+
+if(localStorage.getItem('cart') == null) {
+  cartElemArray.push(data.Id);
+  localStorage.setItem('cart', JSON.stringify(cartElemArray));
+ $state.reload();
+}
+else {
+  var obj = JSON.parse(localStorage.getItem('cart'));
+  // console.log(obj.length);
+  obj.push(data.Id);
+  localStorage.setItem('cart',JSON.stringify(obj));
+  $state.reload();
+}
+
+ }
+ $scope.backPage = function() {
+   $state.go('home.dashboard');
+
+ }
+
 }]);

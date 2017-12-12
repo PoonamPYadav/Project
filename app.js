@@ -19,8 +19,17 @@ app.config(function ($stateProvider, $urlRouterProvider){
        templateUrl: 'template/home.html',
        controller:'homeController'
     }
+  
+    var dashboardState = {
+       name: 'home.dashboard',
+       url: '/dashboard',
+        templateUrl: 'template/content.html',
+        controller:'homeController'
+     }
+
+
     var viewState = {
-       name: 'view',
+       name: 'home.view',
        url: '/view/:Id',
         templateUrl: 'template/view.html',
         controller:'viewController'
@@ -28,6 +37,7 @@ app.config(function ($stateProvider, $urlRouterProvider){
    $stateProvider.state(loginState);
    $stateProvider.state(registerState);
     $stateProvider.state(homeState);
+      $stateProvider.state(dashboardState);
       $stateProvider.state(viewState);
    $urlRouterProvider.otherwise('/login');
 
