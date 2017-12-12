@@ -19,6 +19,10 @@ app.controller('homeController', ['$scope', 'myservices', '$state','$mdSidenav',
          }
    };
 
+   // $scope.heroImage = {
+   //         'background-image': 'url(assets/img/add.png)'
+   //     };
+
         var ary = myservices.getary();
   $scope.mobileLists = ary;
 

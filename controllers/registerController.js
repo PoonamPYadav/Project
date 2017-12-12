@@ -9,7 +9,7 @@ app.controller('registerController', function($scope, $state) {
     } else {
 
       localStorage.setItem($scope.user.email, angular.toJson($scope.user));
-      $state.go('home');
+      $state.go('home.dashboard');
     }
   }
 

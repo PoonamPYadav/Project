@@ -22,7 +22,7 @@ app.controller('loginController', function($scope,$state) {
 
       if ($scope.user.email == returndata.email && $scope.user.password == returndata.password) {
         //list.push($scope.user.email);
-        $state.go('home');
+        $state.go('home.dashboard');
 
         //window.location = '../template/registerform.html';
       //  $window.location.href = '../template/registerform.html';

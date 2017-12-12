@@ -1,7 +1,7 @@
 #headtag{
-height:2000px;
-  background-color: #062599;
 
+  background-color: #062599;
+  height: 100px;
 }
 /*.logoutbtn{
 color: white;
@@ -79,8 +79,17 @@ a:hover {
   color: #b12704;
   font-weight: bold;
 }
-/*.cartback{
-
-  background-color: red;
-  background-image: url("assets/img/shop1.png");
-}*/
+.cartback{
+  padding: 5px;
+  margin: 5px;
+  border-bottom: 5px solid #f3481dd6;
+  width: 60px;
+  border-left: 5px solid #ee9c35;
+  border-right: 5px solid #ee9c35;
+  height: 30px;
+  color:#f7f6fa;
+  border-radius: 8px;
+  text-align: center;
+  /*background-color: red;*/
+  /*background-image: url("../assets/img/add.png");*/
+}
