@@ -1,26 +1,37 @@
-<div class="viewshow" layout="column" flex ng-style="cardstyle" >
+<div class="viewshow" layout="row" flex ng-style="cardstyle" >
       <div  layout-margin flex >
+        <a ng-click=backToPage()><i><b>Back to search result list</b></i></a>
         <md-card id="mobileCard" ng-repeat="moblist in mobileLists" layout="column" layout-padding>
-            <a ng-click=backToPage()><i><b>Back to search result list</b></i></a>
-            <div layout="row">
+          <div layout="row">
               <p class="md-card-image">  <img ng-src="{{ moblist.img }}"  alt="Washed Out" ></p>
             <md-card-actions>
               <md-card-content>
                 <p matLine class="title"> {{ moblist.title}}</p>
                 <p matLine>by {{ moblist.brand}} </p>
-                <p class="rupee" matLine>&#x20b9;{{ moblist.price}}</p>
+                <p matLine class="rupee"  ng-model="pric"  >&#x20b9;{{ moblist.price}}</p>
               <div matLine ng-repeat="featuresList in moblist.features">Features: {{featuresList.sim}},
                 <p>{{featuresList.camera}},</p>
                 <p>{{featuresList.scren}},</p>
                 <p>{{featuresList.music}}</p>
-              </div><br>
-              <div class="cartaddBtn" layout="row" layout-align="center center">
-                <img src="assets\img\add.png" alt="addcart" width="50px" height="45px">
-                <md-button  ng-click=addToCart(moblist.Id)>Add to cart</md-button>
               </div>
-            </md-card-content>
+              <select ng-model="moblist.quantity" ng-change="getselectval({{ moblist.Id }},moblist.quantity,{{ moblist.price}},$index)">
+<option  ng-repeat="s in sample " ng-selected="v == value">{{s}}</option>
+</select>
+
+
+<p> {{selectedvalues}}</p>
+
+  <p ng-model="total"> total{{moblist.productCost}}</p>
+              </md-card-content>
           </md-card-actions>
+
           </div>
+
         </md-card>
+
+    </div>
+    <div flex="20" class="prt2" layout-margin>
+<p ng-model="grandTotal"> total:{{grandTotal()}}</p>
+      <span>{{mobileLists|json}}</span>
     </div>
 </div>

@@ -1,16 +1,15 @@
 app.controller('registerController', function($scope, $state) {
   $scope.user = {};
-
-  $scope.save = function() {
+  $scope.saveData = function()
+  {
     //console.log($scope.user);
-
-    if ($scope.user.email == null && $scope.user.password == null) {
-      alert('Please fill data');
-    } else {
-
-      localStorage.setItem($scope.user.email, angular.toJson($scope.user));
-      $state.go('home.dashboard');
-    }
+      if ($scope.SaveForm.$valid)
+      {
+        alert("User sucessfully  register..!!");
+        localStorage.setItem($scope.user.email, JSON.stringify($scope.user)); //Convert a JavaScript object into a string with JSON.stringify().
+        $state.go('login');
+      }else {
+        alert("Form is not Valid..!!");
+      }
   }
-
 });

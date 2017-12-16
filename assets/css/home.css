@@ -1,12 +1,9 @@
 #headtag{
-
+height:100px;
   background-color: #062599;
-  height: 100px;
+
 }
-/*.logoutbtn{
-color: white;
-  align:right;
-}*/
+
 .fixed-header {
   position: fixed;
   z-index: 2;
@@ -82,14 +79,42 @@ a:hover {
 .cartback{
   padding: 5px;
   margin: 5px;
-  border-bottom: 5px solid #f3481dd6;
+  font-weight: bold;
+  border-bottom: 5px solid #b12704;
   width: 60px;
   border-left: 5px solid #ee9c35;
   border-right: 5px solid #ee9c35;
   height: 30px;
-  color:#f7f6fa;
   border-radius: 8px;
   text-align: center;
   /*background-color: red;*/
-  /*background-image: url("../assets/img/add.png");*/
+  /*background-image: url("../assets/img/add.png");
+  'background-size' : 'cover';*/
+}
+
+.rating{
+  color: #a9a9a9;
+  margin: 0;
+  padding: 0;
+}
+
+ul.rating {
+  display: inline-block;
+}
+
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rating .filled {
+  color: #21568b;
+}
+
+.prt2{
+  background-color: red;
 }

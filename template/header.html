@@ -6,8 +6,13 @@
         <h2 class="md-toolbar-tools"><span >Online Shopping</span></h2>
       </div>
       <div layout="column" ng-style="{'background-image': 'url(../assets/img/add.png)'}">
+
      <md-button ng-click=logout()>Logout</md-button>
-     <p class="cartback">{{NoOfCartElements}}</p>
+     <p class="cartback" ui-sref="home.cartpage" >{{NoOfCartElements}}</p>
+     <!-- <i class="material-icons">add shopping cart</i> -->
+
+     <!-- <md-icon md-font-library="material-icons">add shopping cart</md-icon> -->
+
      </div>
   </div>
 </md-toolbar>
