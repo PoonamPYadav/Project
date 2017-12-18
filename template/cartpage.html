@@ -1,7 +1,7 @@
 <div class="viewshow" layout="row" flex ng-style="cardstyle" >
       <div  layout-margin flex >
         <a ng-click=backToPage()><i><b>Back to search result list</b></i></a>
-        <md-card id="mobileCard" ng-repeat="moblist in mobileLists" layout="column" layout-padding>
+        <md-card id="mobileCard" ng-init="setTo(moblist)"ng-repeat="moblist in mobileLists" layout="column" layout-padding>
           <div layout="row">
               <p class="md-card-image">  <img ng-src="{{ moblist.img }}"  alt="Washed Out" ></p>
             <md-card-actions>
@@ -19,9 +19,8 @@
 </select>
 
 
-<p> {{selectedvalues}}</p>
 
-  <p ng-model="total"> total{{moblist.productCost}}</p>
+   <p ng-model="total"> total{{moblist.productCost}}</p> 
               </md-card-content>
           </md-card-actions>
 
@@ -31,7 +30,7 @@
 
     </div>
     <div flex="20" class="prt2" layout-margin>
-<p ng-model="grandTotal"> total:{{grandTotal()}}</p>
+<b>Total</b><p ng-bind="grandTotal()"></p>
       <span>{{mobileLists|json}}</span>
     </div>
 </div>

@@ -1,105 +1,175 @@
 app.controller('cartPageController', function($scope, myservices, $state) {
 
-  var cartId = JSON.parse(localStorage.getItem('cart'));
-  console.log(Array.isArray(cartId));
-  //cartId.sort();
-  console.log(cartId);
-  console.log(cartId.length);
-  var myObje;
-  aryqunt = [];
-  var current = null;
-  var cnt = 0;
-  for (var i = 0; i < cartId.length; i++) {
-    if (cartId[i] != current) {
-      if (cnt > 0) {
-        // myObje={"mobId":current,
-        //          "qun":cnt
-        //          }
 
-        aryqunt.push(current, cnt);
+var cartInfo = JSON.parse(localStorage.getItem('cart'));
+console.log(cartInfo);
+var k = 0;
+var factary = myservices.mobileListary();
+var cartPageListary = [];
+for (var i = 0; i < factary.length; i++) {
+  if (cartInfo[k] == undefined) {
+    break;
+  }
+  if (cartInfo[k].product_id == factary[i].Id) {
+    cartPageListary.push(factary[i]);
+    k++;
+  }
+}
+
+      arrnum=[];
+      for (var i = 1; i <= 10; i++) {
+        arrnum[i]=i;
       }
-      current = cartId[i];
-      cnt = 1;
-    } else {
-      cnt++;
-    }
+      $scope.sample = arrnum;
+      $scope.mobileLists = cartPageListary;
+
+      $scope.getselectval = function(productId, quantity,price,index) {
+
+        var sub = quantity * price;
+
+        console.log(sub);
+          //var qunt=parseInt(data);
+          $scope.mobileLists[index].productCost = sub;
+          console.log($scope.mobileLists[index].productCost );
+
+
+      //  console.log(productId + ' ' + quantity );
+        for (var i = 0; i < cartInfo.length; i++) {
+          if (cartInfo[i].product_id == productId)
+            cartInfo[i].quantity = quantity;
+        }
+        localStorage.setItem('cart', JSON.stringify(cartInfo));
+        $state.reload();
+      }
+
+
+$scope.grandTotal=function(){
+var totalCost=0;
+for (var i = 0; i < cartInfo.length; i++) {
+  for (var j = 0; j < factary.length; j++) {
+  if(  factary[j].Id==  cartInfo[i].product_id){
+
+    totalCost +=cartInfo[i].quantity*factary[j].price;
   }
-  if (cnt > 0) {
-    // myObje={"mobId":current,
-    //          "qun":cnt
-    //          }
-    //console.log(myObje);
-    aryqunt.push(current, cnt);
+  }
+}
+return totalCost;
+}
+
+$scope.quantityTotal=function(){
+  var totalQunt=0;
+  for (var i = 0; i < cartInfo.length; i++) {
+      totalQunt +=cartInfo[i].quantity;
+  }
+  return totalQunt;
+  console.log(totalQunt);
   }
 
-  console.log(aryqunt);
 
-  Arr2 = [],
-    Arr3 = [];
-
-  for (var i = 0; i < aryqunt.length; i++) {
-    if ((i + 2) % 2 == 0) {
-      Arr3.push(aryqunt[i]);
-    } else {
-      Arr2.push(aryqunt[i]);
-    }
-  }
-  console.log(Arr3);
-
-
-  var k = 0;
-
-  var factary = myservices.mobileListary();
-  var cartPageListary = [];
-  var aryQuantity = [];
-  for (var i = 0; i < factary.length; i++) {
-    if (Arr3[k] == factary[i].Id) {
-      cartPageListary.push(factary[i]);
-      k++;
-    }
-
-  }
-  //
-  // for(var i=0;i<Arr3.length;i++){
-  // if(Arr3.indexOf[i]==Arr2.indexOf[i]){
-  // aryQuantity.push(Arr2[i])
-  // }
-  // }
-  console.log(cartPageListary);
-  //console.log(aryQuantity);
-  $scope.mobileLists = cartPageListary;
-  //$scope.quantity=aryQuantity;
-  $scope.sample = ['1', '2', '3', '4', '5'];
-  //console.log($scope.sample.length);
-  var tot = 0;
-  arrId = [];
-  arrId1 = [];
-  var k = 0;
-  var i = 0;
-var grandtotal=0;
-  $scope.getselectval = function(id, data, price,index) {
-    var sub=data*price;
-    var tot=sub;
-    $scope.mobileLists[index].productCost = sub;
-
-$scope.total=$scope.mobileLists[index].productCost;
-
-    console.log(tot,arrId);
-  
-   grandtotal +=$scope.mobileLists[index].productCost;
-  $scope.grandTotal =grandtotal;
-  }
+      $scope.backToPage = function() {
+            $state.go('home.dashboard');
+          }
 
 });
+//       var tot = 0;
+//       $scope.getselectval = function(id, data, price, index) {
+//         var sub = data * price;
+//         var qunt=parseInt(data);
+//         //var tot = sub;
+//         //pro=[];
+//         $scope.mobileLists[index].productCost = sub;
+//           //console.log(data);
+//             cartElemArray=[];
+//             if(localStorage.getItem('proqunt') == null) {
+//                 cartElemArray.push({product_id:id, quantity:1,prices:(1*price)});
+//                 localStorage.setItem('proqunt', JSON.stringify(cartElemArray));
+//                 $state.reload();
+//               }
+//             else {
+//               //  var obj = JSON.parse(localStorage.getItem('proqunt'));  //string to object conversion
+//                 // console.log(obj);
+//                 for (var i = 0; i < cartId.length; i++) {
+//                       if (cartId[i].product_id == productId)
+//                         cartId[i].quantity = quantity;
+//                     }
+//                 //obj.push({product_id:id, quantity:qunt,prices:$scope.mobileLists[index].productCost});
+//                 localStorage.setItem('proqunt',JSON.stringify(cartId));  //Convert a JavaScript object into a string with JSON.stringify()
+//                 $state.reload();
+//               }
+//               // prodcost.push({index: $scope.mobileLists[index].Id, cost: $scope.mobileLists[index].productCost});
+//               //   console.log(pro);
+//               }
+// // var prod=JSON.parse(localStorage.getItem('proqunt'));
+// // console.log(prod);
+// // var total=0;
+// //
+// // arr=[];
+// // for (var i = 0; i < prod.length; i++) {
+// //   if(cartId[k]==prod.product_id){
+// //   arr[i]=prod.lastIndexOf(prod.product_id)}
+// //   k++;
+// // }
+// // console.log(arr);
+// // for (var i = 0; i < prod.length; i++) {
+// //   if (cartId[k]==prod[i].product_id) {
+// //     if (prod.lastIndexOf(prod.product_id)) {
+// //       total+=prod[i].prices;
+// //     }
+// //     k++;
+//
+// //   }
+// // }
+// //console.log(total);
+//
 
-//  $scope.calculateSum = function(data){
-// var sum=0;
-// var counter=0;
-//  for (var property in data) {
-//    if (data.hasOwnProperty(property)) {
-//       sum += data[property];
-//       counter++;
-//    }
-//  }
-//  return sum;
-// };
+// $scope.grandTotal = function() {
+//     var totalCost = 0;
+//     for (var i = 0; i < cartInfo.length; i++) {
+//       for (var j = 0; j < factary.length; j++) {
+//         if (factary[j].Id == cartInfo[i].product_id) {
+//           totalCost += cartInfo[i].quantity * factary[j].price;
+//         }
+//       }
+//     }
+//     return totalCost;
+//   }
+//
+//
+//     // $scope.grandTotal = function(list) {
+    //   var totalCost = 0;
+    //   // for (var i = 0; i < cartInfo.length; i++) {
+    //   //   for (var j = 0; j < factary.length; j++) {
+    //   //     if (factary[j].Id == cartInfo[i].product_id) {
+    //   //       totalCost += cartInfo[i].quantity * factary[j].price;
+    //   //     }
+    //   //   }
+    //   // }
+    //
+    //   angular.foreach(list,function(item){
+    //
+    //     totalCost +=parseInt(item.productCost);
+    //   })
+    //   return totalCost;
+    // }
+
+
+    //    grandtotal +=$scope.mobileLists[index].productCost;
+    //   $scope.grandTotal =grandtotal;
+    //   }
+    // $scope.grandTotal=function(){
+    //   var totl=0;
+    //   angular.forEach($scope.mobileLists.productCost,)
+    // }
+
+
+    //  $scope.calculateSum = function(data){
+    // var sum=0;
+    // var counter=0;
+    //  for (var property in data) {
+    //    if (data.hasOwnProperty(property)) {
+    //       sum += data[property];
+    //       counter++;
+    //    }
+    //  }
+    //  return sum;
+    // };

@@ -33,11 +33,18 @@ app.controller('homeController', ['$scope', 'myservices', '$state','$mdSidenav',
           {
             $state.go('login');  //goto login page after logout
           }
-
+arr=[];
+var k=0;
       $scope.check = function(data)
-        {                              //console.log(data);
+        {                            //  console.log(data);
          if (data.checked == true) {
-            $scope.itemType = data.name;
+          //  arr=[];
+         arr[k]=data.name;
+            k++;
+          console.log(arr);
+          arr.toString();
+            $scope.itemType =arr;
+            console.log($scope.itemType);
           } else {
             $scope.itemType = ' ';
           }
