@@ -6,7 +6,7 @@ app.service("myservices", function() {
           img: "assets/img/mob1.jpg",
           title: "Samsung Galaxy J7 Prime",
           price: 50,
-          os: "ioS",
+          os: "android",
           brand: "Samsung",
           features: [{
             sim: "Dual SIM",
@@ -20,7 +20,7 @@ app.service("myservices", function() {
         {
           Id: 2,
           img: "assets/img/mob2.jpg",
-          title: "Samsung Galaxy J7 Prime ",
+          title: "Samsung Galaxy J2 Prime ",
           price: 230,
           os: "android",
           brand: "Samsung",
@@ -38,7 +38,7 @@ app.service("myservices", function() {
           title: "Nokia 105 (Black, 16GB)",
           price: 200,
           os: "Window phone",
-          brand: "Nokiya",
+          brand: "Nokia",
           features: [{
             sim: "Dual SIM",
             camera: "Primary Camera",
@@ -67,7 +67,7 @@ app.service("myservices", function() {
           img: "assets/img/mob6.jpg",
           title: "Redmi 4 (Gold, 64GB)",
           price: 7899,
-          os: "Blackberry",
+          os: "ioS",
           brand: "Mi"
         }
       ]

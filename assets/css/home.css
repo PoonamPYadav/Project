@@ -115,6 +115,41 @@ ul.rating {
   color: #21568b;
 }
 
-.prt2{
-  background-color: red;
+.Grandtotal{
+  background-color: #ece9f842;
+  height: 300px;
+  }
+.stars{
+ height: 10px;
+ width: 30%;
+}
+
+#mobCard .qun{
+/* //border-top:  1px solid gray; */
+margin: 0 auto;
+
+}
+
+#mobCard .feature{
+  font-size: 12px;
+}
+
+#mobCard{
+
+  color: #0000000;
+  width: 80%;
+  height: 250px;
+  margin: 0 auto;
+  background-color: #ece9f842;
+  border-radius: 2px;
+  text-align: left;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+  #star .jk-rating-stars-container .button .material-icons {
+      font-size: 21px;
+  }
+
+ #star .material-icons {
+    font-size: 23px;
 }

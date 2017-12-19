@@ -1,36 +1,49 @@
-<div class="viewshow" layout="row" flex ng-style="cardstyle" >
-      <div  layout-margin flex >
-        <a ng-click=backToPage()><i><b>Back to search result list</b></i></a>
-        <md-card id="mobileCard" ng-init="setTo(moblist)"ng-repeat="moblist in mobileLists" layout="column" layout-padding>
-          <div layout="row">
-              <p class="md-card-image">  <img ng-src="{{ moblist.img }}"  alt="Washed Out" ></p>
-            <md-card-actions>
-              <md-card-content>
-                <p matLine class="title"> {{ moblist.title}}</p>
-                <p matLine>by {{ moblist.brand}} </p>
-                <p matLine class="rupee"  ng-model="pric"  >&#x20b9;{{ moblist.price}}</p>
-              <div matLine ng-repeat="featuresList in moblist.features">Features: {{featuresList.sim}},
+<div class="viewshow" layout="row" flex ng-style="cardstyle">
+  <div layout-margin flex>
+    <div style="margin: 0 auto; width:80%; text-align:center;">
+      <a ng-click=backToPage()><i><b>Back to search result list</b></i></a>
+    </div>
+    <div class="" layout="column">
+      <md-card id="mobCard" ng-init="setTo(moblist)" ng-repeat="moblist in mobileLists" layout="column" layout-padding>
+        <div layout="row">
+          <p class="md-card-image"> <img ng-src="{{ moblist.img }}" alt="Washed Out"></p>
+          <md-card-actions>
+            <md-card-content>
+              <p matLine class="title"> {{ moblist.title}}</p>
+              <p matLine>by {{ moblist.brand}} </p>
+              <p matLine class="rupee" ng-model="pric">&#x20b9;{{ moblist.price}}</p>
+              <div matLine class="feature" ng-repeat="featuresList in moblist.features">Features: {{featuresList.sim}},
                 <p>{{featuresList.camera}},</p>
                 <p>{{featuresList.scren}},</p>
                 <p>{{featuresList.music}}</p>
               </div>
-              <select ng-model="moblist.quantity" ng-change="getselectval({{ moblist.Id }},moblist.quantity,{{ moblist.price}},$index)">
-<option  ng-repeat="s in sample " ng-selected="v == value">{{s}}</option>
-</select>
-
-
-
-   <p ng-model="total"> total{{moblist.productCost}}</p> 
-              </md-card-content>
+            </md-card-content>
           </md-card-actions>
+          <div class="qun">
 
+      <md-input-container style="margin-right: 10px;">
+        <label>Quantity</label>
+        <md-select ng-model="moblist.quantity" ng-change="getselectval({{ moblist.Id }},moblist.quantity,{{ moblist.price}},$index)">
+          <md-option ng-repeat="s in sample" value="{{s}}">{{s}}</md-option>
+        </md-select>
+      </md-input-container>
+            <!-- <select ng-model="moblist.quantity" ng-change="getselectval({{ moblist.Id }},moblist.quantity,{{ moblist.price}},$index)">
+            <option  ng-repeat="s in sample ">{{s}}</option>
+            </select> -->
           </div>
-
-        </md-card>
-
+          <div class="subTotal">
+            <p ng-model="total"> Sub-total</p>
+            <p class="rupee">{{moblist.productCost}}</p>
+          </div>
+        </div>
+      </md-card>
     </div>
-    <div flex="20" class="prt2" layout-margin>
-<b>Total</b><p ng-bind="grandTotal()"></p>
-      <span>{{mobileLists|json}}</span>
-    </div>
+  </div>
+  <div flex="20" class="Grandtotal" layout-margin layout-padding>
+    <b>Item Selected</b><p ng-bind="quantityTotal()"></p><br><br>
+    <b>Total</b>
+    <p ng-bind="grandTotal()"></p>
+
+    <!-- <span>{{mobileLists|json}}</span> -->
+  </div>
 </div>

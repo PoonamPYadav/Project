@@ -1,12 +1,12 @@
 <div layout-padding layout="row" layout-wrap ng-style="cardstyle" >
-  <div  ng-repeat="moblist in mobileLists |filter:itemType | filter:itemsType| filter:itemBrandType"
+  <div  ng-repeat="moblist in mobileLists |filterSelectBrand | filter:itemsType| filter:itemBrandType"
    layout-margin layout-padding layout-wrap flex-xs="80" flex-gt-lg="30" flex-xl="30">
     <md-card id="mobileCard" md-whiteframe="4">
       <a class="md-card-image" ui-sref="home.view({Id:moblist.Id})"><img ng-src="{{moblist.img}}" width="230px" alt="Washed Out"></a>
       <md-card-actions layout="row">
         <md-card-content>
-           <jk-rating-stars rating="firstRate"  class="star-rating"></jk-rating-stars>
           <a ui-sref="home.view({Id:moblist.Id})" class="title"><p matLine> {{ moblist.title}} </a></p>
+            <jk-rating-stars rating="firstRate" id="star"  class="star-rating"></jk-rating-stars>
           <p matLine>by {{ moblist.brand}} </p> <!--matLine use for Multi-line lists-->
           <p class="rupee" matLine>&#x20b9;{{ moblist.price}}</p>  <!-- &#x20b9; use for rupee sign-->
          </md-card-content>

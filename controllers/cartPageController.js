@@ -7,7 +7,7 @@ var k = 0;
 var factary = myservices.mobileListary();
 var cartPageListary = [];
 for (var i = 0; i < factary.length; i++) {
-  if (cartInfo[k] == undefined) {
+  if (cartInfo[k] == null) {
     break;
   }
   if (cartInfo[k].product_id == factary[i].Id) {
@@ -17,7 +17,7 @@ for (var i = 0; i < factary.length; i++) {
 }
 
       arrnum=[];
-      for (var i = 1; i <= 10; i++) {
+      for (var i = 1; i <=10; i++) {
         arrnum[i]=i;
       }
       $scope.sample = arrnum;
@@ -25,23 +25,35 @@ for (var i = 0; i < factary.length; i++) {
 
       $scope.getselectval = function(productId, quantity,price,index) {
 
-        var sub = quantity * price;
 
-        console.log(sub);
+
+      //  console.log(sub);
           //var qunt=parseInt(data);
-          $scope.mobileLists[index].productCost = sub;
-          console.log($scope.mobileLists[index].productCost );
+
 
 
       //  console.log(productId + ' ' + quantity );
         for (var i = 0; i < cartInfo.length; i++) {
-          if (cartInfo[i].product_id == productId)
+          if (cartInfo[i].product_id == productId){
             cartInfo[i].quantity = quantity;
-        }
+          }//$state.reload();
+          }
+            //$state.reload();
         localStorage.setItem('cart', JSON.stringify(cartInfo));
-        $state.reload();
+var sub = quantity * price;
+
+$scope.mobileLists[index].productCost = sub;
+console.log($scope.mobileLists[index].productCost );
       }
 
+      $scope.quantityTotal=function(){
+        var totalQunt=0;
+        for (var i = 0; i < cartInfo.length; i++) {
+            totalQunt +=cartInfo[i].quantity*1;
+        }
+        return totalQunt;
+        //console.log(totalQunt);
+        }
 
 $scope.grandTotal=function(){
 var totalCost=0;
@@ -54,16 +66,9 @@ for (var i = 0; i < cartInfo.length; i++) {
   }
 }
 return totalCost;
+console.log(totalCost);
 }
 
-$scope.quantityTotal=function(){
-  var totalQunt=0;
-  for (var i = 0; i < cartInfo.length; i++) {
-      totalQunt +=cartInfo[i].quantity;
-  }
-  return totalQunt;
-  console.log(totalQunt);
-  }
 
 
       $scope.backToPage = function() {
@@ -71,6 +76,20 @@ $scope.quantityTotal=function(){
           }
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //       var tot = 0;
 //       $scope.getselectval = function(id, data, price, index) {
 //         var sub = data * price;
