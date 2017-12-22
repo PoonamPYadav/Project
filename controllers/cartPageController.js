@@ -24,15 +24,11 @@ for (var i = 0; i < factary.length; i++) {
       $scope.mobileLists = cartPageListary;
 
       $scope.getselectval = function(productId, quantity,price,index) {
-
-
-
       //  console.log(sub);
           //var qunt=parseInt(data);
-
-
-
       //  console.log(productId + ' ' + quantity );
+      var sub = quantity * price;
+      $scope.mobileLists[index].productCost = sub;
         for (var i = 0; i < cartInfo.length; i++) {
           if (cartInfo[i].product_id == productId){
             cartInfo[i].quantity = quantity;
@@ -40,9 +36,6 @@ for (var i = 0; i < factary.length; i++) {
           }
             //$state.reload();
         localStorage.setItem('cart', JSON.stringify(cartInfo));
-var sub = quantity * price;
-
-$scope.mobileLists[index].productCost = sub;
 console.log($scope.mobileLists[index].productCost );
       }
 

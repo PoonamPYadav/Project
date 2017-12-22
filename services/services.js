@@ -6,7 +6,7 @@ app.service("myservices", function() {
           img: "assets/img/mob1.jpg",
           title: "Samsung Galaxy J7 Prime",
           price: 50,
-          os: "android",
+          os: "Android",
           brand: "Samsung",
           features: [{
             sim: "Dual SIM",
@@ -22,7 +22,7 @@ app.service("myservices", function() {
           img: "assets/img/mob2.jpg",
           title: "Samsung Galaxy J2 Prime ",
           price: 230,
-          os: "android",
+          os: "Android",
           brand: "Samsung",
           features: [{
             sim: "Dual SIM",
@@ -38,7 +38,7 @@ app.service("myservices", function() {
           title: "Nokia 105 (Black, 16GB)",
           price: 200,
           os: "Window phone",
-          brand: "Nokia",
+          brand: "Samsung",
           features: [{
             sim: "Dual SIM",
             camera: "Primary Camera",
@@ -51,7 +51,7 @@ app.service("myservices", function() {
           img: "assets/img/mob4.jpg",
           title: "Lenovo Z2 Plus (Black)",
           price: 150,
-          os: "ioS",
+          os: "iOS",
           brand: "Lenovo"
 
         }, {
@@ -67,7 +67,7 @@ app.service("myservices", function() {
           img: "assets/img/mob6.jpg",
           title: "Redmi 4 (Gold, 64GB)",
           price: 7899,
-          os: "ioS",
+          os: "iOS",
           brand: "Mi"
         }
       ]

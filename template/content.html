@@ -1,5 +1,6 @@
 <div layout-padding layout="row" layout-wrap ng-style="cardstyle" >
-  <div  ng-repeat="moblist in mobileLists |filterSelectBrand | filter:itemsType| filter:itemBrandType"
+  <!-- {{itemType|json}} -->
+  <div  ng-repeat="moblist in mobileLists |selectedCustomerbrnd:itemType |selectedCustomerbrnd :itemBrandType| filter:itemsType"
    layout-margin layout-padding layout-wrap flex-xs="80" flex-gt-lg="30" flex-xl="30">
     <md-card id="mobileCard" md-whiteframe="4">
       <a class="md-card-image" ui-sref="home.view({Id:moblist.Id})"><img ng-src="{{moblist.img}}" width="230px" alt="Washed Out"></a>

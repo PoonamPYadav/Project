@@ -1,6 +1,10 @@
 //var app=angular.module('loginApp', []);
 app.controller('homeController', ['$scope', 'myservices', '$state', '$mdSidenav', function($scope, myservices, $state, $mdSidenav) {
   $scope.firstRate = 0;
+
+    $scope.len=0;
+
+      console.log($scope.len);
   var x = 0;
   $scope.toggleSidenav = function() {
     $mdSidenav('left-side-nav').toggle();
@@ -37,46 +41,53 @@ app.controller('homeController', ['$scope', 'myservices', '$state', '$mdSidenav'
     $state.go('login'); //goto login page after logout
   }
 
-  // $scope.useMakes = [];
-  //
-  //   $scope.filterMakes = function () {
-  //       return function (p) {
-  //           for (var i in $scope.useMakes) {
-  //               if (p.name == $scope.group[i] && $scope.useMakes[i]) {
-  //                   return true;
-  //               }
-  //           }
-  //       };
-  //   };
-  //
 
 
 
-  arr = [];
-  var k = 0;
 
+
+var arr=[];
   $scope.check = function(data) { //  console.log(data);
     if (data.checked == true) {
-
-      // var mySet = new Set();
-      // mySet.add(data.name);
-      arr[k] = data.name;
-      k++;
-
-      arr.join();
-
-      arr.forEach(function(element) {
-        $scope.itemType = element;
-      });
-
-      console.log(arr);
-    } else {
-      $scope.itemType = ' ';
+      if(arr.indexOf(data.name)==-1){
+        arr.push(data.name);
+      // arr[k]=data.name;
     }
+    //  console.log(arr);
+      }else {
+         $scope.itemType = ' ';
+         var index=arr.indexOf(data.name);
+         if (index !== -1) {
+           arr.splice(index, 1);
 
+         }
+         //console.log(arr);
+       }
+        $scope.itemType = arr;
 
+    //  console.log($scope.itemType);
   }
+  var arr1=[];
+    $scope.checkBrand = function(data) {
+        console.log(data);
+      if (data.checked == true) {
+        if(arr1.indexOf(data.name)==-1){
+          arr1.push(data.name);
 
+      }
+          }else {
+           $scope.itemBrandType = ' ';
+           var index=arr1.indexOf(data.name);
+           if (index !== -1) {
+             arr1.splice(index, 1);
+
+           }
+
+         }
+          $scope.itemBrandType = arr1;
+
+       console.log($scope.itemBrandType);
+    }
 
   $scope.checks = function(data) {
     if (data.checked == true) {
@@ -85,13 +96,13 @@ app.controller('homeController', ['$scope', 'myservices', '$state', '$mdSidenav'
       $scope.itemsType = ' ';
     }
   }
-  $scope.checkBrand = function(data) {
-    if (data.checked == true) {
-      $scope.itemBrandType = data.name;
-    } else {
-      $scope.itemBrandType = ' ';
-    }
-  }
+  // $scope.checkBrand = function(data) {
+  //   if (data.checked == true) {
+  //     $scope.itemBrandType = data.name;
+  //   } else {
+  //     $scope.itemBrandType = ' ';
+  //   }
+  // }
 
   if (localStorage.getItem('cart') == null) {
     $scope.NoOfCartElements = 0;
@@ -114,37 +125,39 @@ app.controller('homeController', ['$scope', 'myservices', '$state', '$mdSidenav'
 
 }]);
 
-app.filter('filterSelectBrand', function() {
+app.filter('selectedCustomerbrnd', function($filter) {
 
-  return function(items) {
+  return function(mobileListgetary , OSList) {
+   console.log(mobileListgetary);
+console.log(OSList);
 
-    var filtered = [];
-    for (var i = 0; i < items.length; i++) {
-      var item = items[i];
-      filtered.push(item);
-    }
-    return filtered;
-    console.log(filtered);
-  }
 
-})
+     var temp = mobileListgetary.filter(function (data) {
+      //console.log(data);
+      if (OSList && OSList.length > 0 ) {
+        return ((OSList.indexOf(data.os) > -1) || (OSList.indexOf(data.brand) > -1) );
+      }
+      return true;
 
-// var uniqueItems = function (data, key) {
-//     var result = new Array();
-//     for (var i = 0; i < data.length; i++) {
-//         var value = data[i][key];
+     });return temp;
+
+
+
+       //return temp;
+       }
+     });
+
+// app.filter('selectedCustomerfet', function($filter) {
+//     return function(mobileListgetary ,featList) {
+//  var temp1 = mobileListgetary.filter(function (data) {
+//   console.log(data);
+//   if (featList && featList.length > 0 ) {
+//     return (featList.indexOf(data.brand) > -1)
+//   }
+//   return true;
 //
-//         if (result.indexOf(value) == -1) {
-//             result.push(value);
-//         }
-//
-//     }
-//     return result;
-// };
-// app.filter('groupBy',
-//             function () {
-//                 return function (collection, key) {
-//                     if (collection === null) return;
-//                     //return uniqueItems(collection, key);
-//         };
-//     });
+//  });
+//  //return temp;
+// return temp1;
+// }
+// });

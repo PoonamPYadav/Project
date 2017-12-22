@@ -4,7 +4,7 @@
       <div class="checkboxOpt">
         <a ng-click="displayOSCheckBox=!displayOSCheckBox"><span>Mobile Phone Operating System</span></a>
           <div class="checkboxItem" ng-show="displayOSCheckBox" layout="column" ng-repeat="item in osList">
-  	         <md-checkbox  aria-label="mobile_name" ng-model="item.checked" ng-change="check(item)">
+  	         <md-checkbox  aria-label="mobile_name" ng-checked="item.checked" ng-model="item.checked" ng-change="check(item)">
                {{ item.name}} <br>
              </md-checkbox>
   	      </div>
